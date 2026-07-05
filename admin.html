@@ -19,6 +19,7 @@
   button { width: 100%; margin-top: 22px; padding: 15px; font-size: 16px; font-weight: 600; color: #fff; background: #0b4a8b; border: none; border-radius: 14px; cursor: pointer; }
   button:hover { background: #0d5aa9; }
   button:disabled { background: #9fb3c8; cursor: default; }
+  button:focus { outline: none; box-shadow: 0 0 0 3px #0b4a8b55; }
   .msg { margin-top: 16px; padding: 12px 14px; border-radius: 12px; font-size: 14px; display: none; }
   .msg.error { background: #fdecec; color: #a32d2d; border: 1px solid #f3c2c2; display: block; }
   .created { display: none; margin-top: 18px; background: #e9f6ee; border: 1px solid #bfe3cc; border-radius: 14px; padding: 16px; text-align: center; }
@@ -168,7 +169,8 @@ order.forEach(function (id, i) {
     if (i < order.length - 1) {
       document.getElementById(order[i + 1]).focus();
     } else {
-      save();
+      // Last field: move focus to the Save button; the NEXT Enter saves.
+      document.getElementById("save").focus();
     }
   });
 });
