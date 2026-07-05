@@ -91,6 +91,9 @@ var ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 document.getElementById("sn").addEventListener("input", function () {
   this.value = this.value.replace(/\D/g, "").slice(0, 25);
 });
+document.getElementById("sn").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") getCode();
+});
 document.getElementById("uid").addEventListener("input", resetAll);
 document.getElementById("uid").addEventListener("keydown", function (e) {
   if (e.key === "Enter") lookup();
